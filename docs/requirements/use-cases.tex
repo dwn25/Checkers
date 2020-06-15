@@ -1,0 +1,107 @@
+\section{Use Cases}
+
+\subsection{Movement}
+To move a piece, click on the piece then click on a square highlighting a valid
+move for said piece.  An unpromoted piece is only able to move in the forward
+direction.
+
+\subsection{Capturing}
+To capture a piece, click on your capturing piece and then click on a square
+highlighing an available capture move. As per drought rules, capturing when
+possible is mandatory. An unpromoted piece can only capture in the forward
+direction. A promoted piece can capture in either direction.
+\begin{itemize}
+  \item
+    \textbf{Precondition:} An opponent's piece is located in a position
+    available for capture (located on an adjacent diagonal).
+  \item
+    \textbf{Action:} Player indicates intention to move ``over'' an enemy
+    piece.
+  \item
+    \textbf{Postcondition:} Player's piece has been moved behind the enemy
+    piece (hops over the enemy piece) and enemy piece has been removed from the
+    game.
+\end{itemize}
+
+\subsection{Promoting}
+Moving a piece to the last opposing row will result in a promotion of said
+piece.
+\begin{itemize}
+  \item
+    \textbf{Precondition:} Unpromoted piece is able to move to last row of
+    board.
+  \item
+    \textbf{Action:} A piece has completed a move to the last row of the board.
+  \item
+    \textbf{Postcondition:} Promoted piece is now able to move and capture in
+    both the forward and backward directions.
+\end{itemize}
+
+\subsection{Game Completion}
+When all of a player's pieces are captured, the game is complete. The player
+with pieces on the board is the winner.
+\begin{itemize}
+  \item
+    \textbf{Precondition:} Player has one piece on board.
+  \item
+    \textbf{Action:} Any player's final game piece is captured.
+  \item
+    \textbf{Postcondition:} Banner displays winner of game and a button to
+    return to the main menu.
+\end{itemize}
+
+\subsection{Local Game Hosting}
+\begin{itemize}
+  \item
+    \textbf{Precondition:} User is on Local Game Screen.
+  \item
+    \textbf{Action:} User clicks Host Game.
+  \item
+    \textbf{Postcondition:} Server application starts and is now able to
+    recieve connections from a single other player client.
+\end{itemize}
+
+\subsection{Internet Game Hosting}
+\begin{itemize}
+  \item
+    \textbf{Precondition:} User is on Internet Game Screen.
+  \item
+    \textbf{Action:} User clicks Host Game.
+  \item
+    \textbf{Postcondition:} Server application starts and is now able to
+    recieve connections from a single other player client. IP Address of host
+    is displayed.
+\end{itemize}
+
+\subsection{Local Game Starting}
+\begin{itemize}
+  \item
+    \textbf{Precondition:} User has hosted a local game and a player has joined
+    their lobby.
+  \item
+    \textbf{Action:} User clicks Start Game.
+  \item
+    \textbf{Postcondition:} Both players transition to Main Game Screen.
+\end{itemize}
+
+\subsection{Internet Game Starting}
+\begin{itemize}
+  \item
+    \textbf{Precondition:} User has hosted an internet game and a player has
+    joined their lobby.
+  \item
+    \textbf{Action:} User clicks Start Game.
+  \item
+    \textbf{Postcondition:} Both players transition to Main Game Screen.
+\end{itemize}
+
+\subsection{Resigning}
+\begin{itemize}
+  \item
+    \textbf{Precondition:} User wishes to resign game and it is their turn.
+  \item
+    \textbf{Action:} User clicks Resign and confirms prompt.
+  \item
+    \textbf{Postcondition:} Both users transition into End Game Screen with
+    resigning user being the loser.
+\end{itemize}

@@ -1,0 +1,105 @@
+\section{User Interface}
+
+\subsection{Start Screen}
+Upon starting the application, the user will be presented with a screen
+displaying the title of the game.  The user will be prompted to press any key
+to continue to the Main Menu Screen.
+
+\subsection{Main Menu Screen}
+The main menu will contain 4 buttons: Local Game, Internet Game, Exit Game, and
+About.
+\begin{itemize}
+  \item The Local Game button will navigate the user to the Local Game Screen.
+  \item The Internet Game button will navigate the user to the Internet Game Screen
+  \item The Exit Game button will prompt the user for a confirmation and then exit the application.
+  \item The About button will navigate the user to the About Screen.
+\end{itemize}
+
+\subsection{Local Game Screen}\label{subsec:local-game-screen}
+The local game screen will contain 2 buttons: Host Game and Find Game.
+\begin{itemize}
+  \item
+    The Host Game button will start the server application and create a
+    ``lobby'' displayed on the same screen.
+  \item
+    The lobby will update as a new user joins. A new button labeled Start Game
+    will appear to allow the host to start the game, navigating to the Main
+    Game Screen.
+  \item
+    The Find Game button will search for the server application on local
+    intranet and display the available servers as lobbies.
+  \item
+    Clicking on an available server will prompt the user for confirmation and
+    transition the list of lobbies into a display of the current lobby.
+\end{itemize}
+
+\subsection{Internet Game Screen}
+The Internet Game Screen shall contains 2 buttons: Host Game and Join Game.  A
+button to navigate back to the previous screen will also be provided.
+\begin{itemize}
+  \item
+    The Host Game button shall start the server application and display the
+    host's IP Address. A lobby shall be displayed such as in the Local Game
+    Screen (\fullref{subsec:local-game-screen}).
+  \item
+    The lobby shall update as a new user joins. A new button labeled Start Game
+    shall appear to allow the host to start the game, navigating to the Main
+    Game Screen.
+  \item
+    A text input box shall be displayed next to the Join Game button and take
+    an IP address of host as input.
+  \item
+    The Join Game button shall validate input of the IP address text input and
+    enter the host's ``lobby''.
+\end{itemize}
+
+\subsection{About Screen}
+The about screen shall contains 4 buttons: How To Play, Application Info,
+Credits, and Main Menu. A button to navigate back to the previous screen will
+also be provided.
+
+\begin{itemize}
+  \item The How to Play button shall display the rules of the game to the user.
+  \item The Application Info button shall navigate to the Application Info
+    Screen.
+  \item The Credits button shall navigate to the Credits Screen.
+  \item The Main Menu button shall exit the game for both players and return to
+    the Main Menu Screen.
+\end{itemize}
+
+\subsection{Credits Screen}
+The credits screen will display the name of entities contributing to the
+development of the application. A button to navigate back to the previous
+screen will be provided.
+
+\subsection{Application Info Screen}
+The application info screen will display the application's version, patch
+notes, and license information. A button to navigate back to the previous
+screen will be provided.
+
+\subsection{Main Game Screen}
+The main game screen will display the game's current board on each player's
+screen. Players can move pieces by clicking or touching the piece.  The board
+shall appear as a standard drought 8$\times$8 grid of two contrasting,
+alternating colors.
+\begin{itemize}
+  \item
+    Main game screen will contain a Resign button which will prompt player for
+    confirmation then transition into End Game Screen
+  \item
+    Once a piece is clicked, it shall be highlighted in one color.  All
+    available moves for the highlighted piece shall be displayed in another
+    color.
+ \item
+   Upon the completion of the opposing player's turn, text shall be displayed
+   to indicate a new player's turn.
+  \item
+    Upon a win condition, a pop-up shall be displayed to players.  Pop-up will
+    announce the winner and present both players with a Main Menu button to
+    navigate to the Main Menu Screen.
+\end{itemize}
+
+\subsection{End Game Screen}
+End game screen is Main Game Screen with interactions disabled and a banner
+displaying the winner of the game.  End game screen will contain a Main Menu
+button which will transition user to Main Menu Screen.

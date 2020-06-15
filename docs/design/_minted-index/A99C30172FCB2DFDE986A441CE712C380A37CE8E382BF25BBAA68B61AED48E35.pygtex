@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{///}
+\PYG{k}{impl}\PYG{+w}{ }\PYG{n}{Renderer}\PYG{p}{\PYGZob{}}
+
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{new}\PYG{p}{()}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{Self}\PYG{p}{;}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Create model at the origin.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{create\PYGZus{}model}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{k}{mut}\PYG{+w}{ }\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{name}\PYG{o}{:\PYGZam{}}\PYG{k+kt}{str}\PYG{p}{)}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{Handle}\PYG{p}{;}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Translate model to a location in worldspace.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{translate\PYGZus{}model}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{k}{mut}\PYG{+w}{ }\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{handle}\PYG{o}{:}\PYG{n}{Handle}\PYG{p}{,}\PYG{n}{pos}\PYG{o}{:}\PYG{n}{vec3}\PYG{p}{,}\PYG{n}{animate}\PYG{o}{:}\PYG{k+kt}{bool}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Scale a model.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{scale\PYGZus{}model}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{k}{mut}\PYG{+w}{ }\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{handle}\PYG{o}{:}\PYG{n}{Handle}\PYG{p}{,}\PYG{n}{scale}\PYG{o}{:}\PYG{n}{vec3}\PYG{p}{,}\PYG{n}{animate}\PYG{o}{:}\PYG{k+kt}{bool}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Rotate a model by degrees, around a supplied axis.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{rotate\PYGZus{}model}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{k}{mut}\PYG{+w}{ }\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{handle}\PYG{o}{:}\PYG{n}{Handle}\PYG{p}{,}\PYG{n}{degrees}\PYG{o}{:}\PYG{k+kt}{f32}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{:}\PYG{n}{vec3}\PYG{p}{,}\PYG{n}{animate}\PYG{o}{:}\PYG{k+kt}{bool}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Set the camera to a position in world space.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{set\PYGZus{}camera}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{k}{mut}\PYG{+w}{ }\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{pos}\PYG{o}{:}\PYG{n}{vec3}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Have the camera look at position in world space.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{camera\PYGZus{}lookat}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{k}{mut}\PYG{+w}{ }\PYG{n}{sefl}\PYG{p}{,}\PYG{n}{pos}\PYG{o}{:}\PYG{n}{vec3}\PYG{p}{);}
+
+\PYG{+w}{	}\PYG{l+s+sd}{/// Access for the input buffer.}
+\PYG{+w}{	}\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{fn}\PYG{+w}{ }\PYG{n}{get\PYGZus{}input}\PYG{p}{(}\PYG{o}{\PYGZam{}}\PYG{n+nb+bp}{self}\PYG{p}{)}\PYG{o}{\PYGZhy{}\PYGZgt{}\PYGZam{}}\PYG{n+nb}{Vec}\PYG{o}{\PYGZlt{}}\PYG{n}{Input}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

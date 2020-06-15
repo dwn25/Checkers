@@ -1,0 +1,20 @@
+[package]
+name = "cs-451-group-5"
+version = "0.1.0"
+authors = ["Eric Hegnes <eric.hegnes@gmail.com>",
+           "Daniel Gildenbrand",
+           "Derek Mallon",
+           "David Nartey"]
+edition = "2018"
+
+[dependencies]
+sdl2 = {version = "0.32"}
+log = "0.4.6"
+env_logger = "0.6.0"
+gl = "0.10.0"
+docopt = "1"
+serde = "1.0"
+serde_derive = "1.0"
+bincode = "1.1.2"
+ncurses = { git = "https://github.com/jeaye/ncurses-rs", default-features = false, features = ["wide"] }
+libc = "*"

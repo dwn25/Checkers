@@ -1,0 +1,179 @@
+\section{Functional Requirements}
+
+\subsection{Game Logic}
+\begin{itemize}
+  \item Play a game of checkers
+  \item Only allow correct moves
+  \item Only allow each player to move when it's their turn
+  \item End the game when a win condition is met
+  \item Play over two computers via the internet
+  \item Allow player clients to connect without a server (peer-to-peer)
+  \item Display the game's current board on each players screen
+  \item At start up display a box to type in the opponents IPv4 address
+  \item Players can move pieces of the game with their mouse
+\end{itemize}
+
+\subsubsection{Playing a Game}
+\paragraph{Rules:}
+The game is played on a common chess board, although traditionally the checker
+boards use black and red of the squares. A game is played with 2 players one
+controls the white pieces and one controls the black pieces. Each player has
+control of 12 pieces. Pieces are initally placed on the black squares of the
+first three rows for each side of the board.
+
+\paragraph{Game Board:}
+\subparagraph{Key:}{%
+  \begin{itemize}
+    \item \texttt{\#} is a black square
+    \item \textt{o} is a red square
+  \end{itemize}
+}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  \multicolumn{8}{|c|}{White Side}  \\ \hline
+  o & \# & o & \# & o & \# & o & \# \\ \hline
+  \# & o & \# & o & \# & o & \# & o \\ \hline
+  o & \# & o & \# & o & \# & o & \# \\ \hline
+  \# & o & \# & o & \# & o & \# & o \\ \hline
+  o & \# & o & \# & o & \# & o & \# \\ \hline
+  \# & o & \# & o & \# & o & \# & o \\ \hline
+  o & \# & o & \# & o & \# & o & \# \\ \hline
+  \# & o & \# & o & \# & o & \# & o \\ \hline
+  \multicolumn{8}{|c|}{Black Side}  \\ \hline
+\end{tabular}
+
+\paragraph{Inital Setup}
+\subparagraph{Key:}{%
+  \begin{itemize}
+    \item \texttt{\#} is a black square
+    \item \texttt{o} is a red square
+    \item \texttt{b} is a black piece
+    \item \texttt{w} is a white piece
+  \end{itemize}
+}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  \multicolumn{8}{|c|}{White Side}      \\ \hline
+  o  & w  & o  & w  & o  & w  & o  & w  \\ \hline
+  w  & o  & w  & o  & w  & o  & w  & o  \\ \hline
+  o  & w  & o  & w  & o  & w  & o  & w  \\ \hline
+  \# & o  & \# & o  & \# & o  & \# & o  \\ \hline
+  o  & \# & o  & \# & o  & \# & o  & \# \\ \hline
+  b  & o  & b  & o  & b  & o  & b  & o  \\ \hline
+  o  & b  & o  & b  & o  & b  & o  & b  \\ \hline
+  b  & o  & b  & o  & b  & o  & b  & o  \\ \hline
+  \multicolumn{8}{|c|}{Black Side}      \\ \hline
+\end{tabular}
+
+\subsubsection{Movement Rules}\label{subsec:movement-rules}
+\begin{itemize}
+\item
+  Pieces can only move from black squares to other black squares.
+\item
+  There can not be another piece in the way for a piece to move there.
+\item
+  Pieces move diagnolly, normal pieces can usually move one square diagonally
+  an only forward towards the other side. King pieces can more diagonolly one
+  square but in either direction.
+\item
+  Pieces can capture the opponents pieces by \emph{jumping} over them.  Inorder
+  to jump over a piece the jumper needs to be next to the piece it wants to
+  jump over and there needs to be a space in the square on diagonally behind
+  the piece which is being jumped over and captured.
+\item
+  King pieces can move both backwards and forwards.
+\end{itemize}
+
+\subsubsection{Capturing}
+As explained in Movement Rules (\fullref{subsec:movement-rules}), pieces can
+jump over opponent pieces to capture them. Once a piece is captured, it is
+removed from the game. It is possible for multiple pieces to be captured in a
+single move.
+
+\paragraph{Key:}{%
+  \begin{itemize}
+    \item \texttt{\#} is a black square
+    \item \texttt{o} is a red square
+    \item \texttt{b} is a black piece
+    \item \texttt{w} is a white piece
+    \item \texttt{1} first jump
+    \item \texttt{2} second jump
+  \end{itemize}
+}
+
+\noindent
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+  \hline
+  \multicolumn{8}{|c|}{White Side}  \\ \hline
+  o & \# & o & \# & o & \# & o & \# \\ \hline
+  \# & o & \# & o & \# & o & \# & o \\ \hline
+  o & w & o & \# & o & \# & o & \# \\ \hline
+  \# & o & b & o & \# & o & \# & o \\ \hline
+  o & \# & o & 1 & o & \# & o & \# \\ \hline
+  \# & o & \# & o & b & o & \# & o \\ \hline
+  o & \# & o & \# & o & 2 & o & \# \\ \hline
+  \# & o & \# & o & \# & o & \# & o \\ \hline
+  \multicolumn{8}{|c|}{Black Side}  \\ \hline
+\end{tabular}
+
+\subsubsection{Kings}
+Pieces become kings once they reach the opponents side.
+
+\subsubsection{Win Conditions}
+\begin{itemize}
+  \item One player captures all of the opponents pieces (they win).
+  \item A player is put into a position where they can not move (they lose, the
+    other player wins).
+  \item A player resigns (they lose, the other player wins).
+\end{itemize}
+Our software will end the game once a win condition is met and it will
+display a message which tell which player has won the game. Once the
+game is ended it will return to the main menu.
+
+\subsubsection{Move Validation}
+Players will only be able to input moves which are legal under specifications
+of this document and as follows:
+\begin{itemize}
+  \item Players will not be able to move for the other player.
+  \item Players will not be able to move onto their own pieces.
+\end{itemize}
+
+\subsection{Networking}
+\subsubsection{Remote Play}
+Players will be able to play against each other over the internet on two
+seperate computer devices. This function will allow for two players to play
+checkers remotely without requiring any kind of physical connection between
+their computers.
+
+\subsubsection{Peer-to-peer (P2P)}
+Players will be able to connect their clients togther to play a game without
+the need for a centralized server. Instead, they will simply have to share
+their IPv4 addresses and than connect using the Interface.
+
+\subsection{User Interface}
+\subsubsection{Board Screen}
+Our software will create a window with the operating's window system which
+allows for the game board and pieces to be displayed in 3d on the screen of the
+both players. It will update once a move is made. The screen will also have
+buttons to resign, and exit.
+
+\subsubsection{Startup Screen}
+The startup screen will have a textbox to enter a players IPv4 address. It
+will also display instructions and a checkers rules. Finally, there will be a
+button to quit the software.
+
+\subsubsection{IPv4 Address Selection}
+In order to find a player to play against, the software will provide a textbox
+accepting valid IPv4 address input. When two clients enter their respective IPv4
+addresses, they will connected to each other, and a game will commence. There
+will also be a text prompt which will display the status of the connection.
+If no other player is found, the software will time out.
+
+\subsubsection{Interface Interaction}
+Inside the display window players will be able to click on pieces which they
+would like to move and then click on the place where they would like to move.
+The UI will show which moves are legally possible.
+
+\subsubsection{Splash Screen}
+On software start up a splash screen will show a screen with release build
+information.

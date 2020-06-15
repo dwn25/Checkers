@@ -1,0 +1,87 @@
+\documentclass[titlepage]{article}
+\usepackage[margin=.75in]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+
+\title{CS 451 Group 5:\\Final Summary Document}
+\author{Eric Hegnes, Daniel Gildenbrand, Derek Mallon, David Nartey}
+\date{March 11, 2019}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Usage}
+Building is handled via \href{https://www.docker.com/}{Docker} to provide a unified environment for building
+without individual package management.
+
+\subsection{Dependencies}
+\begin{itemize}
+  \item Docker (\url{https://www.docker.com/get-started})
+  \item Docker Compose (\url{https://docs.docker.com/compose/install/})
+  \item GNU Make (\url{https://www.gnu.org/software/make/})
+\end{itemize}
+
+\subsection{Make Targets}
+\begin{tabularx}{\textwidth}{|l|X|}
+  \hline
+  Target & Description  \\ \hline
+  \texttt{all} & Format and run code  \\
+  \texttt{fmt} & Format code according to official guidelines  \\
+  \texttt{watch} & Watch source files and run tests on change  \\
+  \texttt{lint} & Report linting warnings  \\
+  \texttt{req-docs} & Generate requirements documentation  \\
+  \texttt{test-docs} & Generate test case documentation  \\
+  \texttt{final-docs} & Generate final documentation  \\
+  \texttt{src-docs} & Generate and serve source documentation  \\
+  \texttt{todos} & List stray TODO comments in the source  \\
+  \texttt{cov} & Generate coverage report (with branches)*  \\
+  \texttt{clean} & Remove generated files \\
+  \hline
+\end{tabularx}
+* \textit{Coverage reporting currently requires a} \texttt{rust} \textit{nightly build
+and other dependencies such as} \texttt{lcov}.
+
+\subsection{Building}
+Once the dependencies are installed, the game may be run inside a terminal with \texttt{make run}.
+
+\includepdf[offset=0em -5em,pages=1,pagecommand=\section{Code Coverage}]{lcov_report_0_1_0.pdf}
+\includepdf[offset=0em -5em,pages=2-,pagecommand={}]{lcov_report_0_1_0.pdf}
+
+\section{Static Analysis}
+The programming language Rust was chosen for development purposes in part due
+to its in-built static analysis. With compiler implementations of concepts such
+as borrow checking, lifetimes, and ownership, Rust attempts to guarantee memory
+safety. By virtue of building without explicitly unsafe sections,
+\textsc{Rusted Checkers} passes these static checks.
+
+Extra linting analysis may be run with \texttt{make lint}. Any warnings
+existing warnings from this command have been reviewed and allowed by the
+developers.
+
+\section{Release Notes}
+This document outlines release notes for \texttt{v0.1.0} of \textsc{Rusted Checkers}.
+\subsection{Working}
+\begin{itemize}
+  \item A game is created and a board is displayed within a terminal or TTY console.
+  \item Piece capturing is implemented and displays a pieces as being captured.
+  \item Possible moves are generated when an owned piece is clicked.
+\end{itemize}
+\subsection{Not Implemented}
+\begin{itemize}
+  \item Networking, in full
+  \item Piece promotion
+\end{itemize}
+\subsection{Known Issues}
+\begin{itemize}
+  \item The main thread may panic on certain clicks that are unbounded by the
+    board window.
+\end{itemize}
+
+\input{cases}
+
+\end{document}

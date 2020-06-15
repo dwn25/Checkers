@@ -1,0 +1,55 @@
+\section{Non-Functional Requirements}
+
+\subsection{Accessibility}
+Help text will be provided in English. At all times, a keyboard shortcut will
+be available to the user that provides useful information about game flow and
+controls.
+
+\subsection{Compatibility}
+Backwards compatibility between major version numbers (as specified by the
+Semantic Versioning 2.0.0 guidelines) is not guaranteed. Incompatible clients
+will be filtered out of the discovered games view.
+
+\subsection{Performance}
+Latency between user interactions should be no longer than 500ms. In the
+case of network-based functionality, a 5000ms time limit shall be placed on
+network queries. In instances where a network task takes longer than 5000ms to
+complete, the user interaction will be canceled and the user who began the
+query will be notified.
+
+\subsection{Reliability}
+The application should never enter into an error state where it crashes. All
+errors ought to be logged or handled gracefully in such a way that the user
+experiencing the error is able to understand the cause of the problem or report
+error information to an entity capable of fixing or reproducing the bug.
+
+\subsection{Safety}
+The application ought never exceed its privileges or modify files on a client
+machine that would otherwise impact performance or usability of said machine.
+
+\subsection{Scalability}
+The application is designed to scale up to four (4) clients.
+
+\subsection{Testability}
+The application is to be covered 100\% by unit tests, as reported by
+\texttt{kcov}\cite{kcov} version \texttt{v33}.
+
+\subsection{Usability}
+Any user familiar with the game of checkers ought to be able to understand the
+program well enough within 10 minutes of its opening that they can competently
+play with another user.
+
+\subsection{Versioning}
+The application is required to use Rust version
+\texttt{1.32.0}\cite{rust1.32.0} as its minimum compatible compiler version.
+\\\\
+\noindent The application itself is to use the Semantic Versioning 2.0.0\cite{semver} guideline, as
+follows, for release versioning:
+\begin{quote}
+Given a version number \texttt{MAJOR.MINOR.PATCH}, increment the:
+  \begin{enumerate}
+    \item \texttt{MAJOR} version when you make incompatible API changes,
+    \item \texttt{MINOR} version when you add functionality in a backwards-compatible manner, and
+    \item \texttt{PATCH} version when you make backwards-compatible bug fixes.
+  \end{enumerate}
+\end{quote}

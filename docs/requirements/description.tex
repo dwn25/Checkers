@@ -1,0 +1,55 @@
+\section{Description}
+\subsection{Product Perspective}
+The game is intended to be built in the desired OS with a peer-to-peer (P2P)
+networking implementation. The game will communicate with servers in order to
+facilitate the creation and maintenance of this environment necessary to play
+checkers. The actual game that is being played will be displayed to both
+players in realtime. The game will be represented graphically.
+
+\subsection{Product Functions}
+\subsubsection{Workstation Functionality}
+The workstation refers to the system on which the program is initialized and
+ran by the users who intend to play this game. The workstation will be able to
+connect to a network in order to communicate with the server. The workstation
+will display the checkers board in its current state to the two current
+workstations being operated by the active users.
+
+\subsubsection{Server Functionality}
+Clients act as servers as well as their main operation as clients, due to the
+P2P nature of this implementation. The main purpose of the server will be to
+conduct matchmaking services. The server will ensure that an environment is
+created in which two players are able to join each other in order to play a
+game of checkers with one another. The server will be successful if a game
+session can be hosted with no errors, issues or crashes to completion.  The
+server will also ensure  that the rules of the game that is being played are
+followed to prevent any illegal moves by a player. The server must be
+accessible at all times over a network in order to ensure that the game can be
+played from differing remote locations.
+
+\subsection{User Description}
+The users of the product will be composed of two persons, separated by some
+distance, who launch the application with the desire to play checkers via a
+networked connection.  Any two random users may be playing against one another
+at any point. The purpose of the program is to create a piece of software/game
+that ensures that no physical connection is required between the two “active”
+users as there may be users within the game that may be present but inactive
+thereby rendering their status as idle.
+
+\subsection{Assumptions \& Dependencies}
+\subsubsection{OS Support}
+The game is being designed with portability and some ``cross-platform support''
+in order to ensure that the software will run efficiently regardless of the OS
+on which it is executed on. Assuming the code written is error free, no
+instance should occur in which there is a crash due to the operating software.
+We will also assume that the program is being executed on a functional system
+with a stable internet connection.
+
+\subsubsection{Docker}
+The game is being built with Docker in order to build and manage the different
+dependencies in a manner that is independent of the host system. Allows for
+easy, across-the-board modifications as well as a containment of modules being
+written.
+
+\subsubsection{GNU Make}
+To ease development efforts, \textt{make} will be used to build and execute the
+many commands that are necessary to create and maintain a build.

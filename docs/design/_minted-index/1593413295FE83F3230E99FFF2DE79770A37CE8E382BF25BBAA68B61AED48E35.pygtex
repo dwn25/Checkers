@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{/// An American checkers game has a board width of 8.}
+\PYG{k}{pub}\PYG{+w}{ }\PYG{k+kr}{const}\PYG{+w}{ }\PYG{n}{BOARD\PYGZus{}WIDTH}\PYG{o}{:}\PYG{+w}{ }\PYG{k+kt}{usize}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{8}\PYG{p}{;}
+
+\PYG{l+s+sd}{/// A `Point` can either be empty or contain a `Piece`}
+\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{type}\PYG{+w}{ }\PYG{n}{Point}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{Option}\PYG{o}{\PYGZlt{}}\PYG{n}{Piece}\PYG{o}{\PYGZgt{}}\PYG{p}{;}
+
+\PYG{l+s+sd}{/// An (x, y) coordinate representation of a position on the board}
+\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{type}\PYG{+w}{ }\PYG{n}{Position}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{usize}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{usize}\PYG{p}{);}
+
+\PYG{k}{type}\PYG{+w}{ }\PYG{n}{InternalBoard}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{[[}\PYG{n}{Point}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{BOARD\PYGZus{}WIDTH}\PYG{p}{];}\PYG{+w}{ }\PYG{n}{BOARD\PYGZus{}WIDTH}\PYG{p}{];}
+
+\PYG{l+s+sd}{/// A board contains a two\PYGZhy{}dimensional vector of `Point`s}
+\PYG{c+cp}{\PYGZsh{}[derive(Debug, PartialEq)]}
+\PYG{k}{pub}\PYG{+w}{ }\PYG{k}{struct}\PYG{+w}{ }\PYG{n}{Board}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{board}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{InternalBoard}\PYG{p}{,}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

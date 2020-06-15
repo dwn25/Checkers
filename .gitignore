@@ -1,0 +1,26 @@
+# Rust
+/target
+math/target
+asset_loader/target
+**/*.rs.bk
+Cargo.lock
+*.rustfmt
+
+# Coverage
+report/
+lcov.info
+main.gcda
+main.gcno
+
+# TeX
+docs/*/*.aux
+docs/*/*.fdb_latexmk
+docs/*/*.fls
+docs/*/*.log
+docs/*/*.out
+docs/*/index.pdf
+docs/*/*.synctex(busy)
+docs/*/*.toc
+
+# Garbage
+*.swp
